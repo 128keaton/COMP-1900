@@ -6,3 +6,4 @@ Homework and Labs for COMP-1900 at University of Memphis
 * Lab 2 - Monthly Payments - Phone Numbers
 ## Homework
 * Lab 1 - Easter Sunday
+* Lab 2 - Paint
