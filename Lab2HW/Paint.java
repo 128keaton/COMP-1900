@@ -77,7 +77,6 @@ public class Paint{
 		// | B				| B
 		// ------------------
 		//     WALL: A
-
 		return (calc2DSpace(length, height) * NUM_SAME_WALLS) + (calc2DSpace(width, height) * NUM_SAME_WALLS);
 	}
 
@@ -99,7 +98,7 @@ public class Paint{
 	}
 
 	public static double matchPaintTypePrice(String name){
-		if (name.toLowerCase() == "deluxe"){
+		if (name.toLowerCase().contains("deluxe")){
 			return DLX_PAINT_PRICE;
 		}
 
