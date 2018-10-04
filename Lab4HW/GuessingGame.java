@@ -26,7 +26,7 @@ public class GuessingGame{
 	// AND it checks if the number is the right one, or if its too high or low. 
 	public static void validateNumber(int number)
 	{
-		if(number <= 0 || number >= 100){
+		if(number <= 1 || number >= 100){
 			System.out.println("You must enter a number between 1-100.");
 			guessNumber();
 			return;
