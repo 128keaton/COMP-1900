@@ -5,6 +5,7 @@ public class RetirementCalculator{
 	final static int FINAL_AGE = 65;
 
 	static int currentAge;
+	static int coastAge = -1;
 	static double initialBalance;
 	static double yearlyContribution;
 	static double interestRatePercent;
@@ -40,7 +41,7 @@ public class RetirementCalculator{
 			System.out.println("Sorry, that target is unreachable :(");
 		}else{
 			System.out.println("\n Congratulations! You can reach that target by saving");
-			System.out.println("your yearly contribution amount for " + (retirementAge - currentAge) + " year(s) until");
+			System.out.println("your yearly contribution amount for " + coastAge + " year(s) until");
 			System.out.println("age " + retirementAge + ", then coasting the rest of the way to " + FINAL_AGE + ".");
 			System.out.println("Projected growth:");
 			System.out.println("-----------------");
@@ -54,16 +55,42 @@ public class RetirementCalculator{
 		int y = currentAge;
 		currentBalance = initialAmount;
 
-		while(currentBalance <= targetAmount){
+		while(currentBalance < targetAmount){
 			double interest = interestRatePercent * currentBalance;
-			currentBalance += (interest + yearlyContribution);
+			double contribution = yearlyContribution;
+
+			if(canCoastToFinalAge(y)){
+				contribution = 0.0;
+				if(coastAge == -1){
+					coastAge = y;
+				}
+		
+			}
+
+			currentBalance += (interest + contribution);
 			y++;
+			
 			if(printToConsole == true){
-				System.out.printf("%5d%15.2f%15.2f%15.2f\n", y, interest, yearlyContribution, currentBalance);
+				System.out.printf("%5d%15.2f%15.2f%15.2f\n", y, interest, contribution, currentBalance);
 			}
 		}
 
 		return y;
+	}
+
+	public static Boolean canCoastToFinalAge(int currentAge){
+		double tempBalance = currentBalance;
+		while(currentAge <= FINAL_AGE && tempBalance < targetAmount){
+			double interest = interestRatePercent * tempBalance;
+			tempBalance += interest;
+			currentAge++;
+		}
+
+		if(currentAge >= FINAL_AGE){
+			return false;
+		}
+
+		return true;
 	}
 
 }
