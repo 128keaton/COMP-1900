@@ -4,6 +4,9 @@ import java.util.Scanner;
 public class MidtermReview2 {
 	final static Scanner scnr = new Scanner(System.in);
 
+	// Change these lines to make the program do even integers
+	final static int MULTIPLE = 7;
+	final static Boolean ODD = true;
 
 	public static void main(String[] args) {
 		// Write a program that takes user input for two integers a and b.
@@ -22,17 +25,22 @@ public class MidtermReview2 {
 		System.out.print("Enter top number: ");
 		int b = scnr.nextInt();
 
-		getSumOfOddMultiplesInRange(a, b);
+		getSumOfMultiplesInRange(a, b, MULTIPLE, ODD);
 	}
 
-	public static void getSumOfOddMultiplesInRange(int a, int b){
+	public static void getSumOfMultiplesInRange(int a, int b, int c, Boolean odd){
 		if(b >= a && a >= 0){
 			int sum = 0;
+
+			// I would've used i + c, but it since I am doing a modulo function I can detect if it is a multiple
+			// Sure, doing that would result in a faster loop, but it would miss numbers if you didn't start at a number that
+			// wasn't already a multiple.
 			for(int i = a; i <= b; i++){
-				if((i % 7) == 0 && (i % 2) != 0){
+				if((i % c) == 0 && (odd ? ((i % 2) != 0) : (i % 2) == 0)){
 					sum += i;
 				}
 			}
+
 			if(sum > 0){
 				System.out.println("Result: " + sum);
 			}else{
