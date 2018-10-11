@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+// Keaton Burleson 
+// Full suite retirement calculator that will tell you when you can stop putting money away AND 
+// still be able to reach your goal
 public class RetirementCalculator{
 	final static Scanner scnr = new Scanner(System.in);
 	final static int FINAL_AGE = 65;
