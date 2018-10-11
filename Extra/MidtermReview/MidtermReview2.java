@@ -32,7 +32,7 @@ public class MidtermReview2 {
 		if(b >= a && a >= 0){
 			int sum = 0;
 
-			// I would've used i + c, but it since I am doing a modulo function I can detect if it is a multiple
+			// I would've used i += c, but it since I am doing a modulo function I can detect if it is a multiple
 			// Sure, doing that would result in a faster loop, but it would miss numbers if you didn't start at a number that
 			// wasn't already a multiple.
 			for(int i = a; i <= b; i++){
