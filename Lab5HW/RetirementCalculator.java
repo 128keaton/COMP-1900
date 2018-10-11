@@ -31,12 +31,12 @@ public class RetirementCalculator{
 		System.out.println("Your current age:");
 		currentAge = scnr.nextInt();
 
-		calculateRetirement();
+		checkForRetirement();
 	}
 
-	public static void calculateRetirement()
+	public static void checkForRetirement()
 	{
-		int retirementAge = getRetirementAge(false);
+		int retirementAge = getFinancialTargetReachedAge(false);
 		if(retirementAge > FINAL_AGE){
 			System.out.println("Sorry, that target is unreachable :(");
 		}else{
@@ -47,50 +47,57 @@ public class RetirementCalculator{
 			System.out.println("-----------------");
 			System.out.printf("%5s%15s%15s%15s\n", "Age", "Interest", "Contribution", "End Balance");
 
-			getRetirementAge(true);
+			getFinancialTargetReachedAge(true);
 		}
 	}
 
-	public static int getRetirementAge(Boolean printToConsole){
-		int y = currentAge;
+	// Returns the age in which you reach your financial target
+	public static int getFinancialTargetReachedAge(Boolean printToConsole){
+		int incrementalAge = currentAge;
 		currentBalance = initialAmount;
 
 		while(currentBalance < targetAmount){
 			double interest = interestRatePercent * currentBalance;
 			double contribution = yearlyContribution;
 
-			if(canCoastToFinalAge(y)){
+			if(canStopContributions(incrementalAge) && printToConsole == true){
 				contribution = 0.0;
+				// Checks if the 'coast age' (where you can stop contributing) is not defined
 				if(coastAge == -1){
-					coastAge = y;
+					coastAge = incrementalAge;
 				}
 		
 			}
 
+			// Appends the interest and contribution to the current balance
 			currentBalance += (interest + contribution);
-			y++;
-			
+			incrementalAge++;
+
+			// If we're in the verbose, fun happy print time mode
 			if(printToConsole == true){
-				System.out.printf("%5d%15.2f%15.2f%15.2f\n", y, interest, contribution, currentBalance);
+				System.out.printf("%5d%15.2f%15.2f%15.2f\n", incrementalAge, interest, contribution, currentBalance);
 			}
 		}
 
-		return y;
+		return incrementalAge;
 	}
 
-	public static Boolean canCoastToFinalAge(int currentAge){
-		double tempBalance = currentBalance;
-		while(currentAge <= FINAL_AGE && tempBalance < targetAmount){
-			double interest = interestRatePercent * tempBalance;
-			tempBalance += interest;
+	// Boolean statement that determines if you can just make your target on interest
+	public static Boolean canStopContributions(int currentAge){
+		double checkBalance = currentBalance;
+		while(currentAge <= FINAL_AGE && !(checkBalance >= targetAmount)){
+			double interest = interestRatePercent * checkBalance;
+			checkBalance += interest;
 			currentAge++;
 		}
 
-		if(currentAge >= FINAL_AGE){
-			return false;
+		// If the while loop breaks out, this checks if it is because of
+		// the age constraint or because of the financial constraint
+		if(checkBalance >= targetAmount && currentAge <= FINAL_AGE){
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 }
