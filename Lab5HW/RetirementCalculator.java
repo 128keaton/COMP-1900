@@ -29,7 +29,6 @@ public class RetirementCalculator{
 
 		System.out.println("Annual growth in percent:");
 		interestRatePercent = (scnr.nextDouble() / 100);
-		System.out.println("(" + interestRatePercent + ")");
 
 		System.out.println("Your current age:");
 		currentAge = scnr.nextInt();
