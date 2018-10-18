@@ -20,4 +20,5 @@ Homework and Labs for COMP-1900 at University of Memphis
 First, the boundary should contains 1 and 100.
 And second, the number of trials should just count trials within the boundary."
 * Lab 5 - Retirement Calculator (Grade 14/15)
-  - Note: "The reported number is wrong but the calculations are correct." *I don't know what failed on their end?*
+  - Note: "The reported number is wrong but the calculations are correct." **I don't know what failed on their end?**
+* Lab 6 - Airport Parking
