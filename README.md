@@ -7,7 +7,8 @@ Homework and Labs for COMP-1900 at University of Memphis
 * Lab 3 - Tuition Calculator (Grade 12/12)
 * Lab 4 - Combinations - Factorals - Powers (Grade 15/15)
 * Lab 5 - Fibonacci - Input Validation (Grade 15/15)
-* Lab 6 - Method Practice (Grade 14/15 "In your divisible you forgot to check for non-positive number and return false.")
+* Lab 6 - Method Practice (Grade 14/15)
+  - "In your divisible you forgot to check for non-positive number and return false."
 ## Homework
 * Lab 1 - Easter Sunday
 * Lab 2 - Paint
