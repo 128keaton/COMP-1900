@@ -30,6 +30,9 @@ public class RunAnalyzer{
 		double totalMiles = 0;
 		double previousData = 0;
 
+		// The change of mileage between the weeks
+		double[] totalChange = new double[(runData.length - 1)];
+
 		// Loop through the runData array and check if the mileage was the same or less than last week
 		for(int i = 0; i < runData.length; i++){
 			totalMiles += runData[i];
@@ -39,13 +42,28 @@ public class RunAnalyzer{
 				isConsistentlyIncreasing = false;
 			}
 
+			// If it isn't the first data sample, then lets get difference between this weeks and last week's data
+			if(i > 0){
+				totalChange[(i - 1)] = (runData[i] - previousData);
+			}
+
 			// Get ready for next week's data
 			previousData = runData[i];
 		}
 
 		// Finally, print the output
 		System.out.println("Your weekly mileage is" + (isConsistentlyIncreasing ? " " : " NOT ") + "consistently increasing");
-		System.out.println("Average weekly mileage: " + (double)(totalMiles/runData.length));
+		System.out.println("Average weekly mileage change: " + calculateAverageChange(totalChange));
+	}
 
+	// Calculates the average weekly change
+	public static double calculateAverageChange(double[] changeData){
+		double change = 0;
+		// For each value, add the difference to the change
+		for(int i = 0; i < changeData.length; i++){
+			change += changeData[i];
+		}
+		// Calculate and return the average
+		return (change/(changeData.length));
 	}
 }
