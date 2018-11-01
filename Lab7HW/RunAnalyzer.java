@@ -64,6 +64,6 @@ public class RunAnalyzer{
 			change += changeData[i];
 		}
 		// Calculate and return the average
-		return (change/(changeData.length));
+		return	Math.round((change/(changeData.length))*100.0)/100.0;
 	}
 }
