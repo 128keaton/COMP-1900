@@ -26,6 +26,13 @@ public class BankAccount {
 		interestRate = i;
 	}
 	
+	// Default constructor
+	public BankAccount() {
+		balance = 0.00;
+		interestRate = 0.0;
+	}
+
+
 	// 1. Complete the following method, which should modify the balance by
 	//    making a single annual interest payment based on the interestRate.
 	public void payAnnualInterest() {
@@ -50,9 +57,7 @@ public class BankAccount {
 			double currentBalance = customerData[i].getBalance();
 			if(currentBalance > highBalance){
 				highBalance = currentBalance;
-			}
-
-			if(currentBalance < lowBalance){
+			}else if(currentBalance < lowBalance){
 				lowBalance = currentBalance;
 			}
 		}
@@ -65,5 +70,7 @@ public class BankAccount {
 		System.out.println("Previous balance: $" + customerData[0].getBalance());
 		customerData[0].payAnnualInterest();
 		System.out.println("Current balance: $" + customerData[0].getBalance());
+
+		BankAccount jim = new BankAccount();
 	}
 }
