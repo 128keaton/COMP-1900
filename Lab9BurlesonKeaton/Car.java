@@ -1,4 +1,4 @@
-
+// A car class for a car
 public class Car {
 	public String make;
 	public String model;
@@ -6,6 +6,7 @@ public class Car {
 	public double price;
 	public double mileage;
 
+	// Default initializer
 	Car(){
 		this.make = "Toyota";
 		this.model = "4Runner";
@@ -14,6 +15,7 @@ public class Car {
 		this.mileage = 0.0;
 	}
 
+	// Initializer with properties
 	Car(String make, String model, String color, double price){
 		this.make = make;
 		this.model = model;
@@ -22,14 +24,17 @@ public class Car {
 		this.mileage = 0.0;
 	}
 
+	// Set the price of a car
 	public void setPrice(double p){
 		this.price = p;
 	}
 
+	// Set the color of the car
 	public void paint(String c){
 		this.color = c;
 	}
 
+	// Outputs the car's info into the command line output
 	public void displayCarInfo(){
 		System.out.println("Make: " + this.make);
 		System.out.println("Model: " + this.model);
@@ -38,6 +43,7 @@ public class Car {
 		System.out.println("Mileage: " + this.mileage);
 	}
 
+	// Appends mileage on the car's odometer
 	public void travel(double distance){
 		this.mileage += distance;
 	}
