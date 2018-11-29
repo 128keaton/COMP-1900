@@ -1,4 +1,6 @@
-// A car class for a car
+// A generic car class. Beep Beep.
+// Keaton Burleson
+// UofM 2018 - COMP 1900 Lab
 public class Car {
 	public String make;
 	public String model;

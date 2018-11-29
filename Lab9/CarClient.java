@@ -1,6 +1,8 @@
 // Tests the car object
+// Keaton Burleson
+// UofM 2018 - COMP 1900 Lab
 public class CarClient{	
-	
+
 	public static void main(String[] args){
 		// Initialize two new cars
 		Car nissanLeaf = new Car("Nissan", "Leaf", "blue", 29999.0);

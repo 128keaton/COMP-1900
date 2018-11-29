@@ -1,4 +1,6 @@
 // An inventory class to manage an array of items
+// Keaton Burleson
+// UofM 2018 - COMP 1900 Lab
 public class Inventory{
 
 	private Item[] items = new Item[5];

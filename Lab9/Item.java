@@ -1,3 +1,6 @@
+// A basic inventory item
+// Keaton Burleson
+// UofM 2018 - COMP 1900 Lab
 public class Item{
 
 	private String description;
