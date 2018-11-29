@@ -1,10 +1,10 @@
 
 public class Car {
-	public static String make;
-	public static String model;
-	public static String color;
-	public static double price;
-	public static double mileage;
+	public String make;
+	public String model;
+	public String color;
+	public double price;
+	public double mileage;
 
 	Car(){
 		this.make = "Toyota";
@@ -36,5 +36,9 @@ public class Car {
 		System.out.println("Color: " + this.color);
 		System.out.println("Price: $" + this.price);
 		System.out.println("Mileage: " + this.mileage);
+	}
+
+	public void travel(double distance){
+		this.mileage += distance;
 	}
 }
